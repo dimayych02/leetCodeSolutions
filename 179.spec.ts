@@ -8,6 +8,6 @@ function largestNumber(nums: number[]): string {
         return num1 < num2 ? 1 : -1;
     }
     const rs: number[] = nums.sort(compare);
-    if(rs[0]===0) return '0';
+    if (rs[0] === 0) return '0';
     return rs.sort(compare).join('');
 };
