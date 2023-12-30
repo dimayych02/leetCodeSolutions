@@ -7,6 +7,7 @@ const uncommonFromSentences = (s1: string, s2: string): string[] => {
     const unCommonOne = strArrOne.filter(
         (x, index) => !strArrTwo.includes(x) && strArrOne.indexOf(x) === strArrOne.lastIndexOf(x));
     const unCommonTwo = strArrTwo.filter(
-        (y, index) => !strArrOne.includes(y) && strArrTwo.indexOf(y) === strArrTwo.lastIndexOf(y));
+        (y, index) => !strArrOne.includes(y) && strArrTwo.indexOf(y) === strArrTwo.lastIndexOf(y)
+    );
     return [...unCommonOne, ...unCommonTwo];
 }
