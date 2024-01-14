@@ -4,7 +4,7 @@
 function countGoodSubstrings(s: string): number {
     const set = new Set<string>();
     let counter: number = 0;
-    while (s.length > 0) {
+    while (s.length >= 3) {
         let leftBorder: number = 0;
         const rightBorder: number = 3;
 
@@ -15,8 +15,6 @@ function countGoodSubstrings(s: string): number {
         counter = (set.size === 3) ? counter + 1 : counter;
         set.clear();
         s = s.substring(1);
-        if (s.length < 3)
-            break;
     }
     return counter;
 
