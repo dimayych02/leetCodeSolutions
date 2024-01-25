@@ -1,6 +1,6 @@
 179. Largest Number
 
-
+// Quick Sort
 function largestNumber(nums: number[]): string {
     const compare = (a: number, b: number): number => {
         const num1: string = `${a}${b}`;
@@ -11,3 +11,62 @@ function largestNumber(nums: number[]): string {
     if (rs[0] === 0) return '0';
     return rs.sort(compare).join('');
 };
+
+
+
+
+// TODO: Modifying Method using Merge Sort
+/** @param arr -array */
+function maxNumber(arr: string[]): number {
+    const n: number = arr.length;
+
+    if (n === 1) return;
+
+    const mid = Math.floor(n / 2);
+    let l: string[] = new Array(mid);
+    let r: string[] = new Array(n - mid);
+
+    for (let i = 0; i < mid; i++)
+        l[i] = arr[i];
+    for (let i = mid; i < n; i++)
+        r[i - mid] = arr[i];
+
+    maxNumber(l);
+    maxNumber(r);
+    findMaxNumber(arr, l, r);
+    return Number(arr.join(''));
+}
+
+/** @param arr -array */
+/** @param arrLeft - leftBorder */
+/** @param  arrRigth - rightBorder */.
+const findMaxNumber = (arr: string[], arrLeft: string[], arrRight: string[]): void => {
+
+    const left = arrLeft.length;
+    const right = arrRight.length;
+
+    let i: number = 0;
+    let j: number = 0;
+    let idx: number = 0;
+
+    while (i < left && j < right) {
+
+        if (parseInt(`${arrLeft[i]}${arrRight[j]}`) > parseInt(`${arrRight[j]}${arrLeft[i]}`)) {
+            arr[idx] = arrLeft[i];
+            i++;
+        }
+
+        else {
+            arr[idx] = arrRight[j];
+            j++;
+        }
+
+        idx++;
+    }
+    for (let ll = i; ll < left; ll++)
+        arr[idx] = arrLeft[ll];
+
+    for (let rr = j; rr < right; rr++)
+        arr[idx] = arrRight[rr];
+
+}
