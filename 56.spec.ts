@@ -47,4 +47,3 @@ const findIntersections = (arr: number[][], arrLeft: number[][], arrRight: numbe
 
     return arr = accArr;
 }
-console.log(String(merge([[1, 3], [2, 6], [8, 10], [15, 18]])));
