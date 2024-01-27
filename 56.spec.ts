@@ -1,4 +1,3 @@
-
 function merge(arr: number[][]): number[][] {
     const n = arr.length;
 
@@ -20,30 +19,32 @@ function merge(arr: number[][]): number[][] {
 }
 
 
- /** @param arr - our Array */
- /** @param  arrLeft - left array after dividing @param arr*/
- /** @param arrRight - right array after dividing @param arr */
- const findIntersections = (arr: number[][], arrLeft: number[][], arrRight: number[][]): number[][] => {
+/** @param arr - our Array */
+/** @param  arrLeft - left array after dividing @param arr*/
+/** @param arrRight - right array after dividing @param arr */
+
+const findIntersections = (arr: number[][], arrLeft: number[][], arrRight: number[][]): number[][] => {
     const left: number = arrLeft.length;
     const right: number = arrRight.length;
     let i: number = 0;
     let j: number = 0;
-    let accArr: number[][] = [];
+    let idx: number = 0;
 
     while (i < left && j < right) {
         // If intervals intersect - accumulate them
         if (arrLeft[i][1] >= arrRight[j][0]) {
-            accArr.push([arrLeft[i++][0], arrRight[j++][1]]);
+            arr[idx++] = [arrLeft[i++][0], arrRight[j++][1]];
+            arr.splice(idx, 1);
         }
         // Otherwise - move leftBorder
         else
-            accArr.push(arrLeft[i++]);
+            arr[idx++] = arrLeft[i++];
     }
     // Fill accArr in case if didn't reach certain border(left/right) 
     for (let ll = i; ll < left; ll++)
-        accArr.push(arrLeft[ll]);
+        arr[idx++] = arrLeft[ll];
     for (let rr = j; rr < right; rr++)
-        accArr.push(arrRight[rr]);
+        arr[idx++] = arrRight[rr];
 
-    return arr = accArr;
+    return arr;
 }
