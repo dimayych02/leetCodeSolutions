@@ -25,12 +25,12 @@ function merge(arr: number[][]): number[][] {
 /** @param  arrLeft - left array after dividing @param arr*/
 /** @param arrRight - right array after dividing @param arr */
 const findIntersections = (arr: number[][], arrLeft: number[][], arrRight: number[][]): number[][] => {
+    
     const left: number = arrLeft.length;
     const right: number = arrRight.length;
     let i: number = 0;
     let j: number = 0;
     let idx: number = 0;
-
 
     while (i < left && j < right) {
         // If intervals intersect - accumulate them
