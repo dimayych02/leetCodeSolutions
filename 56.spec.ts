@@ -32,7 +32,6 @@ const findIntersections = (arr: number[][], arrLeft: number[][], arrRight: numbe
     let j: number = 0;
     let idx: number = 0;
 
-
     while (i < left && j < right) {
         // If intervals intersect - accumulate them
         if (arrLeft[i][1] >= arrRight[j][0] && arrLeft[i][0] <= arrRight[j][0]) {
@@ -49,8 +48,8 @@ const findIntersections = (arr: number[][], arrLeft: number[][], arrRight: numbe
             arr[idx++] = arrLeft[i++]
         // Remove the next element after adding
         arr.splice(idx, 1);
-
     }
+    
     // Fill accArr in case if didn't reach certain border(left / right) 
     for (let ll = i; ll < left; ll++)
         arr[idx++] = arrLeft[ll];
