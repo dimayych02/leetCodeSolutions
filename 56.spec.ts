@@ -35,7 +35,10 @@ const findIntersections = (arr: number[][], arrLeft: number[][], arrRight: numbe
     while (i < left && j < right) {
         // If intervals intersect - accumulate them
         if (arrLeft[i][1] >= arrRight[j][0]) {
-            arr[idx++] = [Math.min(arrLeft[i][0], arrRight[j][0]), Math.max(arrLeft[i][1], arrRight[j][1])];
+            arr[idx++] = [
+                Math.min(arrLeft[i][0], arrRight[j][0]),
+                Math.max(arrLeft[i][1], arrRight[j][1])
+            ];
             i++;
             j++;
         }
