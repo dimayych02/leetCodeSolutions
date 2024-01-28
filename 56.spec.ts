@@ -24,7 +24,6 @@ function merge(arr: number[][]): number[][] {
 /** @param arr - our Array */
 /** @param  arrLeft - left array after dividing @param arr*/
 /** @param arrRight - right array after dividing @param arr */
-
 const findIntersections = (arr: number[][], arrLeft: number[][], arrRight: number[][]): number[][] => {
     const left: number = arrLeft.length;
     const right: number = arrRight.length;
