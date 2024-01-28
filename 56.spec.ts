@@ -49,7 +49,7 @@ const findIntersections = (arr: number[][], arrLeft: number[][], arrRight: numbe
         arr.splice(idx, 1);
     }
     
-    // Fill accArr in case if didn't reach certain border(left / right) 
+    // Fill arr in case if didn't reach certain border(left / right) 
     for (let ll = i; ll < left; ll++)
         arr[idx++] = arrLeft[ll];
     for (let rr = j; rr < right; rr++)
