@@ -25,29 +25,30 @@ function merge(arr: number[][]): number[][] {
 /** @param  arrLeft - left array after dividing @param arr*/
 /** @param arrRight - right array after dividing @param arr */
 const findIntersections = (arr: number[][], arrLeft: number[][], arrRight: number[][]): number[][] => {
-    
     const left: number = arrLeft.length;
     const right: number = arrRight.length;
     let i: number = 0;
     let j: number = 0;
     let idx: number = 0;
 
+
     while (i < left && j < right) {
         // If intervals intersect - accumulate them
         if (arrLeft[i][1] >= arrRight[j][0]) {
-            arr[idx++] = [
-                Math.min(arrLeft[i][0], arrRight[j][0]),
-                Math.max(arrLeft[i][1], arrRight[j][1])
-            ];
+            arr[idx++] =
+                [
+                    Math.min(arrLeft[i][0], arrRight[j][0]),
+                    Math.max(arrLeft[i][1], arrRight[j][1])
+                ];
             i++;
             j++;
         }
 
         // Otherwise - move leftBorder
         else
-            arr[idx++] = arrLeft[i++]
-        // Remove the next element after adding
-        arr.splice(idx, 1);
+            arr[idx++] = arrLeft[i++];
+        // Remove the next elements after adding
+        arr.splice(idx);
 
     }
     // Fill accArr in case if didn't reach certain border(left/right) 
