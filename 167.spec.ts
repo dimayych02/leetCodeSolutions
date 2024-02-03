@@ -16,7 +16,7 @@ function twoSum(numbers: number[], target: number): number[] {
         if (target < numbers[middleIndex])
             endIndex  = middleIndex - 1;
         else
-            return;
+            break;
     }
     return findSum(numbers, target);
 };
