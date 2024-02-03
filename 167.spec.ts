@@ -5,10 +5,9 @@ Return the indices of the two numbers, index1 and index2, added by one as an int
 
 The tests are generated such that there is exactly one solution. You may not use the same element twice. */
 
-
+// Binary search
 /** @param numbers -array */
 /** @param target - what we need to find */
-// Binary search
 function twoSum(numbers: number[], target: number): number[] {
     let endIndex: number = numbers.length - 1;
     while (endIndex >= 0) {
