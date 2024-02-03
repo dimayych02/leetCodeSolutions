@@ -17,8 +17,8 @@ const searchInsert = (nums: number[], target: number): number => {
     const rs: number =
         (target > nums[middleIndex - 1] && target < nums[middleIndex])
             ? middleIndex :
-            (target < nums[middleIndex])
-                ? Math.max(0, middleIndex - 1)
-                : middleIndex + 1
+        (target < nums[middleIndex])
+            ? Math.max(0, middleIndex - 1)
+            : middleIndex + 1
     return rs;
 };
