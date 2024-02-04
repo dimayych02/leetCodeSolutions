@@ -14,14 +14,11 @@ You must solve it in O(log(arr.length)) time complexity. */
 function peakIndexInMountainArray(arr: number[]): number {
 
     let max: number = arr[0];
-
-    if (arr.length === 1)
-        return max;
-
     let l: number = 0;
     let r: number = arr.length - 1;
 
     while (l <= r) {
+
         const middle: number = l + Math.floor((r - l) / 2);
         const midEl: number = arr[middle];
         const prev: number = arr[Math.max(0, middle - 1)];
@@ -34,5 +31,6 @@ function peakIndexInMountainArray(arr: number[]): number {
         else
             l = middle + 1;
     }
+
     return arr.indexOf(max);
 }
