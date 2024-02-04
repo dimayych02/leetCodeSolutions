@@ -38,7 +38,7 @@ function largestNumber(nums: number[]): string {
     largestNumber(l);
     largestNumber(r);
     findMaxNumber(nums, l, r);
-    return  nums.join('')
+    return  nums.join('');
 }
 
 const findMaxNumber = (arr: number[], arrLeft: number[], arrRight: number[]): void => {
