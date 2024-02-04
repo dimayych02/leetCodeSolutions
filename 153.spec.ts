@@ -13,7 +13,7 @@ function findMin(nums: number[]): number {
 
         const middle: number = l + Math.floor((r - l) / 2);
         const midEl: number = nums[middle];
-        min = Math.min(min, midEl, nums[l], nums[l]);
+        min = Math.min(min, midEl, nums[l]);
 
         if (midEl >= nums[l])
             l = middle + 1;
