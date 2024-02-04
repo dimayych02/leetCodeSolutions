@@ -24,7 +24,7 @@ function peakIndexInMountainArray(arr: number[]): number {
         const prev: number = arr[Math.max(0, middle - 1)];
         const next: number = arr[Math.min(arr.length - 1, middle + 1)];
 
-        max = Math.max(max, arr[middle]);
+        max = Math.max(max, midEl);
 
         if (midEl > next && midEl < prev)
             r = middle - 1;
