@@ -6,21 +6,20 @@ Return the rearranged number with minimal value.
 Note that the sign of the number does not change after rearranging the digits.
 */
 
-function smallestNumber(num: number): number {
+function smallestNumber(num: number): string {
 
-    const hasZero: boolean = String(num)[0] == '-';
+    const lessZero: boolean = String(num)[0] == '-';
 
     let sortArr: number[] = String(num)
         .replace('-', '')
         .split('')
         .map(Number)
-        .sort((a, b) => hasZero ? b - a : a - b);
+        .sort((a, b) => lessZero ? b - a : a - b);
     findAccEl(sortArr);
-  
-    const rs =  hasZero
+
+    return lessZero
         ? '-'.concat(sortArr.join(''))
         : sortArr.join('')
-    return Number(rs);
 }
 
 const findAccEl = (arr: number[]): void => {
