@@ -13,7 +13,6 @@ function removeKdigits(num: string, k: number): string {
             k--;
         }
         stack.push(digit);
-
     }
 
     while (k > 0) {
