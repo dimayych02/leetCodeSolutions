@@ -4,10 +4,9 @@
 
 function countPolishSystem(expr: string): string {
     expr = infixToPostfix(expr);
-    let res: string = '';
     const stack: string[] = [];
 
-    for (const char of expr) {
+    for (const char of tokens) {
 
         const regExp = new RegExp(/[0-9]/);
         if (regExp.test(char))
@@ -20,24 +19,23 @@ function countPolishSystem(expr: string): string {
 
             switch (char) {
 
-                case '+': res = `${Number(first) + Number(second)}`
+                case '+': stack.push(`${Number(first) + Number(second)}`)
                     break;
-                case '-': res = `${Number(first) - Number(second)}`
-                    break;
-
-                case '*': res = `${Number(first) * Number(second)}`
+                case '-':  stack.push(`${Number(first) - Number(second)}`)
                     break;
 
-                case '/': res = `${Number(first) / Number(second)}`
+                case '*': stack.push(`${Number(first) * Number(second)}`)
+                    break;
+
+                case '/': stack.push(`${Math.trunc(Number(first) / Number(second))}`);
                     break;
 
             }
 
-            stack.push(res);
         }
     }
 
-    return res;
+    return Number(stack.pop()!);
 }
 
 // Convert our expression (ex '6+3*(1+4*5)*2' ) to Polish system
