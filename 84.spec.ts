@@ -6,12 +6,12 @@ Given an array of integers heights representing the histogram's bar height where
 
 function largestRectangleArea(heights: number[]): number {
     let res: number = 0;
-    let prevIdx: number = -1;
+
     const stack: number[][] = [];
 
     for (let i = 0; i < heights.length; i++) {
         let val: number = heights[i];
-        prevIdx = i;
+        let prevIdx = i;
         while (stack[stack.length - 1][1] > val) {
             const preValues: number[] = stack.pop();
             res = Math.max(res, (i - preValues[0]) * preValues[1]);
