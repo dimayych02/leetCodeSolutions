@@ -11,7 +11,7 @@ function largestRectangleArea(heights: number[]): number {
 
     for (let i = 0; i < heights.length; i++) {
         let val: number = heights[i];
-        let prevIdx = i;
+        let prevIdx: number = i;
         while (stack[stack.length - 1][1] > val) {
             const preValues: number[] = stack.pop();
             res = Math.max(res, (i - preValues[0]) * preValues[1]);
