@@ -6,7 +6,7 @@ function countPolishSystem(expr: string): string {
     expr = infixToPostfix(expr);
     const stack: string[] = [];
 
-    for (const char of tokens) {
+    for (const char of expr) {
 
         const regExp = new RegExp(/[0-9]/);
         if (regExp.test(char))
