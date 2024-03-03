@@ -45,4 +45,5 @@ function decodeString(s: string): string {
                 accDigit = stack.pop() + accDigit;
             stack.push(substr.repeat(Number(accDigit)));
         }
+     return stack.join('');
     }
