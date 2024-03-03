@@ -39,11 +39,11 @@ function decodeString(s: string): string {
                 if (curVal.match(/[a-z]/))
                     substr = curVal.concat(substr);
             }
-        
+
             let accDigit: string = '';
             while (stack.length && stack[stack.length - 1].match(digitRegExp))
                 accDigit = stack.pop() + accDigit;
             stack.push(substr.repeat(Number(accDigit)));
         }
-     return stack.join('');
+        return stack.join('');
     }
