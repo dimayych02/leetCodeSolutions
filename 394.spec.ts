@@ -23,8 +23,10 @@ Input: s = "2[abc]3[cd]ef"
 Output: "abcabccdcdcdef"
 */
 
+/** @param s - string */
 function decodeString(s: string): string {
     const stack: string[] = [];
+    const digitRegExp = new RegExp(/[0-9]/);
     for (const char of s) {
         let substr: string = '';
 
@@ -32,18 +34,15 @@ function decodeString(s: string): string {
             stack.push(char);
 
         else if (stack.length && char == ']') {
-            while (stack.length && !stack[stack.length - 1].match(/[0-9]/)) {
+            while (stack.length && !stack[stack.length - 1].match(digitRegExp)) {
                 const curVal: string = stack.pop()!;
                 if (curVal.match(/[a-z]/))
                     substr = curVal.concat(substr);
             }
         
             let accDigit: string = '';
-            while (stack.length && stack[stack.length - 1].match(/[0-9]/))
+            while (stack.length && stack[stack.length - 1].match(digitRegExp))
                 accDigit = stack.pop() + accDigit;
             stack.push(substr.repeat(Number(accDigit)));
         }
     }
-
-    return stack.join('');
-};
