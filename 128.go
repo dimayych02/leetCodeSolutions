@@ -4,18 +4,19 @@
 
 func longestConsecutive(nums []int) int {
 	hashMap := make(map[int]struct{}, len(nums))
-    var longest int
+	var longest int
 	for _, val := range nums {
 		if _, ok := hashMap[val]; !ok {
 			hashMap[val] = struct{}{}
 		}
 	}
-    for _, val := range nums {
-        if _, ok := hashMap[val-1]; !ok {
-            length := 0
-            for; hashMap[val+length] == struct{}{}; length++ {}
-            longest = int(math.Max(float64(longest), float64(length)))
-        }
-    }
-    return longest
+	for _, val := range nums {
+		if _, ok := hashMap[val-1]; !ok {
+			length := 0
+			for _, ok := hashMap[val+length]; ok; length++ {
+			}
+			longest = int(math.Max(float64(longest), float64(length)))
+		}
+	}
+	return longest
 }
